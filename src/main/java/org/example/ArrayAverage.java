@@ -5,12 +5,16 @@ public class ArrayAverage {
     //Calculate the average  of an array of integers.
 
     public static double calculateAverage(int[] numbers) {
-        // Check if the input array is null or empty
-        if (numbers == null || numbers.length == 0) {
+        // Intentionally causing a NullPointerException if the array is null
+        // This will occur on line 18
+        if (numbers == null) {
+            int length = numbers.length; // This line will throw NullPointerException if numbers is null
+        }
 
-            //IllegalArgumentException if the array is null or empty
-            throw new IllegalArgumentException("Array must be non-null and non-empty");
-    }
+        // Check if the array is empty
+        if (numbers.length == 0) {
+            throw new IllegalArgumentException("Array must not be null or empty");
+        }
 
     // Initialize the sum variable to store the total of array elements
     int sum = 0;
